@@ -1,0 +1,4 @@
+interface:
+  display_name: "Aliang-Growth-Workbench"
+  short_description: "建立和维护自己的个人工作台"
+  default_prompt: "帮我建立或整理个人成长工作台，让规则、记忆、知识和能力能持续使用。"

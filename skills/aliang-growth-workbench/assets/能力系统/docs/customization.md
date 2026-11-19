@@ -1,0 +1,357 @@
+# Customization Guide / 自定义指南
+
+English | [中文](#中文)
+
+The defaults in this starter kit are personal examples. You should change them before using the workflow seriously.
+
+## 1. Paths
+
+Replace all placeholders:
+
+| Placeholder | Meaning |
+| --- | --- |
+| `{{VAULT_PATH}}` | Your Obsidian vault |
+| `{{EXTERNAL_REPO_ROOT}}` | Where full GitHub clones live |
+| `{{CAPABILITY_LIBRARY}}` | Where manifests, cold assets, and catalog files live |
+| `{{TEST_LOG_DIR}}` | Where raw command logs live |
+
+Recommended rule:
+
+```text
+Obsidian vault = notes, rules, templates, decisions
+External repo root = cloned source code
+Test log dir = raw logs
+Capability library = manifests and controlled reusable assets
+```
+
+## 2. Goals and Weights
+
+The example scoring model uses five goals:
+
+| Goal | Example weight |
+| --- | ---: |
+| Productivity / workflow leverage | 25 |
+| Project-building value | 25 |
+| Career value | 20 |
+| AI agent learning value | 20 |
+| Content-production value | 10 |
+
+These weights came from one person's situation. Change them.
+
+Examples:
+
+| User type | Suggested adjustment |
+| --- | --- |
+| Researcher | increase learning and citation quality |
+| Builder | increase project-building and deployment value |
+| Content creator | increase content-production value |
+| Job seeker | increase career evidence and portfolio value |
+| Teacher | increase teaching workflow and reusable material value |
+| Business operator | increase productivity, risk, and repeatability |
+
+Important: scores are only for comparing similar candidates. They should not automatically create S/A/B/C/D grades.
+
+## 3. Evidence Gates
+
+Customize the evidence needed for each decision.
+
+Example:
+
+| Decision | Suggested evidence |
+| --- | --- |
+| Keep as B method reference | online check + clear reusable idea; no installation |
+| Try a B executable candidate | task-level increment judgment + T0 + approval for project scope |
+| Promote to A + project | T1 in the current project's first real task + explicit retention approval |
+| Replace current tool | T2 same-scenario comparison + rollback path |
+| Promote to S | repeated T3 real workflow use |
+| Reject as D | clear hard blocker or unacceptable risk |
+
+If a tool touches accounts, cookies, private files, payments, publishing, deployment, deletion, elevated permissions, external writes, background services, or heavy caches, require stronger preflight or isolation. Do not create a durable `project-trial` state: keep grade, deployment scope, management state, health, and invocation separate.
+
+## 4. Capability Slots
+
+Capability slots should describe work, not brand names.
+
+Prefer:
+
+```text
+transcribe audio and produce timestamped text
+```
+
+Instead of:
+
+```text
+Whisper slot
+```
+
+This makes replacement decisions easier.
+
+## 5. Status Model
+
+For cold-storage assets, keep management, health, and risk separate.
+
+Management:
+
+```text
+active / cold / disabled / reference / retired
+```
+
+Health:
+
+```text
+healthy / unverified / degraded / broken / missing
+```
+
+Risk:
+
+```text
+low / medium / high
+```
+
+Do not write "installed" as if it means "healthy", "safe", or "should be routed".
+
+## 6. Project Distillation Pages
+
+Decide where extracted knowledge should live before you start importing many projects.
+
+Recommended mapping:
+
+| Extracted knowledge | Destination |
+| --- | --- |
+| Repeatable process, checklist, prompt, or review rubric | Workflow pages |
+| General idea, architecture, or mental model | Concept pages |
+| Project-specific implementation lesson | Your own project pages |
+| Evidence about the GitHub source itself | GitHub project card |
+| Agent read scope and routing boundary | Capability/reference manifest |
+
+Avoid one-project-one-distillation-page by default. Update an existing page when the new project strengthens an existing method. Create a new page only when the project introduces a reusable method that does not have a natural home yet.
+
+## 7. Semantic Project Reference Scope
+
+Semantic project references are not executable capabilities. Keep both generated sections limited to approved S/A/B projects in `retained` or `reference` state. The thin discovery section is mandatory for substantive tasks; full semantic details are read only after a Top-1 meaning match.
+
+For every eligible project, customize:
+
+- one distinct verb + object + output capability summary;
+- at least two phrases a non-expert might actually say;
+- `high_confidence`, `gated`, or `explicit_only`;
+- a concrete negative-routing boundary;
+- the visible increment over the ordinary no-extra-project approach.
+
+Avoid generic summaries or examples such as "help with AI" or "make it better." Exact duplicate capability summaries or semantic examples across projects fail validation. `high_confidence` and `gated` both allow a reminder; use `gated` for later reading or execution boundaries. Always keep `no-extra-project` as a valid route and return at most one project reference.
+
+## 8. Registry Scope
+
+Your registry should stay small. It answers:
+
+```text
+What should the agent consider for this task right now?
+```
+
+It should include:
+
+- base/direct option;
+- current healthy core tools;
+- a few high-value explicit tools;
+- high-risk or broken tools only as warnings or blocks.
+
+It should not include every project you ever bookmarked.
+
+## 9. Language
+
+You can run the vault in:
+
+- English;
+- Chinese;
+- bilingual mode;
+- domain-specific mixed language.
+
+Keep commands, paths, API names, model names, and library names exact.
+
+## 10. Router Layers and Entry Budgets
+
+Customize the thin router in [capability-router.md](../templates/capability-router.md):
+
+- Task categories: rename and regroup Level-1 rows to match your actual work; keep the table under roughly ten rows.
+- Entry length caps: the defaults (Level-1 about 30-50 characters, Level-2 about 80-120) are starting points; tighten them if your client truncates aggressively.
+- Native-auto vs. router-preferred: decide which few capabilities stay natively auto-discoverable (high-frequency, low-risk, truncation-safe descriptions) and which the router should prefer. A capability becomes truly router-only only when client-native visibility or invocation settings enforce it; changing those settings requires approval.
+- Manager-type policy: decide your own allowlist bar for capabilities with startup-wide triggers or session-start hook injections. The safe default is explicit-only until reviewed, and promotion requires explicit human approval.
+- Always-visible budget: pick a review cadence (for example monthly) to re-measure clean new-session cost of rules files, active descriptions, and hook injections.
+
+## 中文
+
+这个 starter kit 里的默认值只是个人示例。正式使用前应该按你自己的目标修改。
+
+## 1. 路径
+
+替换所有占位符：
+
+| 占位符 | 含义 |
+| --- | --- |
+| `{{VAULT_PATH}}` | 你的 Obsidian vault |
+| `{{EXTERNAL_REPO_ROOT}}` | 完整 GitHub clone 的位置 |
+| `{{CAPABILITY_LIBRARY}}` | manifest、冷库资产和 catalog 的位置 |
+| `{{TEST_LOG_DIR}}` | 原始命令日志的位置 |
+
+推荐规则：
+
+```text
+Obsidian vault = 笔记、规则、模板、决策
+外部 repo 目录 = 完整源码 clone
+测试日志目录 = 原始日志
+能力库目录 = manifest 和受控可复用资产
+```
+
+## 2. 目标和权重
+
+示例评分模型使用五个目标：
+
+| 目标 | 示例权重 |
+| --- | ---: |
+| 提效 / 工作流杠杆 | 25 |
+| 项目构建价值 | 25 |
+| 求职价值 | 20 |
+| AI Agent 学习价值 | 20 |
+| 内容生产价值 | 10 |
+
+这些权重来自某个具体个人阶段。你应该改掉它们。
+
+示例：
+
+| 使用者类型 | 建议调整 |
+| --- | --- |
+| 研究者 | 提高学习价值和引用质量权重 |
+| 项目构建者 | 提高项目构建和部署价值 |
+| 内容创作者 | 提高内容生产价值 |
+| 求职者 | 提高求职证据和作品集价值 |
+| 教师 | 提高教学流程和可复用材料价值 |
+| 业务经营者 | 提高提效、风险和可重复性权重 |
+
+重要：分数只用于比较同类候选，不应该自动生成 S/A/B/C/D。
+
+## 3. 证据门槛
+
+你可以自定义每种决策需要什么证据。
+
+示例：
+
+| 决策 | 建议证据 |
+| --- | --- |
+| 保留为 B 方法 reference | 联网核查 + 明确可复用想法；不安装 |
+| 尝试 B 级可执行候选 | 任务增量判断 + T0 + 项目级安装批准 |
+| 升级为 A + project | 当前项目第一次真实任务完成 T1 + 明确保留批准 |
+| 替换当前工具 | T2 同场景比较 + 回滚方案 |
+| 升级为 S | 真实 T3 工作流中反复产生价值 |
+| 判为 D | 明确硬阻断或不可接受风险 |
+
+如果工具会触碰账号、Cookie、私有文件、支付、发布、部署、删除、高权限、外部写入、后台服务或重缓存，必须要求更强 preflight 或隔离。不要建立长期 `project-trial` 状态；等级、部署范围、管理状态、健康和调用方式分开记录。
+
+## 4. 能力槽
+
+能力槽应该描述工作，而不是品牌名。
+
+推荐：
+
+```text
+转录音频并输出带时间戳文本
+```
+
+不要写成：
+
+```text
+Whisper 槽
+```
+
+这样以后判断替换关系会更容易。
+
+## 5. 状态模型
+
+冷库资产要把管理状态、健康状态和风险分开。
+
+管理状态：
+
+```text
+active / cold / disabled / reference / retired
+```
+
+健康状态：
+
+```text
+healthy / unverified / degraded / broken / missing
+```
+
+风险：
+
+```text
+low / medium / high
+```
+
+不要把“已安装”直接写成“健康、安全、应该调用”。
+
+## 6. 项目提炼页
+
+开始大量导入项目前，先决定提炼出来的知识应该放在哪里。
+
+推荐映射：
+
+| 提炼出的知识 | 放置位置 |
+| --- | --- |
+| 可重复流程、检查清单、提示词或审稿标准 | 工作流页 |
+| 通用想法、架构或思维模型 | 概念页 |
+| 只和某个自有项目有关的实现经验 | 你的项目页 |
+| GitHub 来源本身的证据 | GitHub 项目卡 |
+| Agent 的读取范围和路由边界 | 能力或 reference manifest |
+
+默认不要变成“一个项目一个提炼页”。如果新项目只是强化已有方法，就更新已有页面。只有项目带来了一个没有自然归属的新方法，才新建提炼页。
+
+## 7. 项目语义参考范围
+
+项目语义参考不是可执行能力。薄发现表和完整语义表都只收经批准的 S/A/B `retained/reference` 项目。实质任务必须先查薄发现表，命中 Top-1 后才读完整语义详情。
+
+每个合格项目需要按自己的实际使用方式填写：
+
+- 一条可区分的“动词 + 对象 + 产物”能力摘要；
+- 至少两句非专业用户日常会说的话；
+- `high_confidence`、`gated` 或 `explicit_only`；
+- 明确的禁止命中或优先分流边界；
+- 相比“不调用额外项目”普通方案能带来的可见增量。
+
+不要写“帮我做 AI”“优化一下”这类过宽摘要或示例。两个项目若出现完全相同的能力摘要或语义示例，校验会直接失败。`high_confidence` 与 `gated` 都允许先提醒，`gated` 只限制后续读取或执行。始终保留 `no-extra-project`，并且一次最多返回一个项目参考。
+
+## 8. Registry 范围
+
+Registry 应该很薄。它回答：
+
+```text
+当前任务里，Agent 应该考虑什么？
+```
+
+它应该包含：
+
+- 直接用模型 / 不调用额外能力；
+- 当前健康的核心工具；
+- 少量高价值显式工具；
+- 高风险或异常工具只作为门禁或警告。
+
+它不应该包含你收藏过的所有项目。
+
+## 9. 语言
+
+你的 vault 可以使用：
+
+- 英文；
+- 中文；
+- 中英双语；
+- 领域混合语言。
+
+命令、路径、API 名、模型名和库名要保持精确。
+
+## 10. 路由分层与条目预算
+
+在 [capability-router.md](../templates/capability-router.md) 里自定义薄路由：
+
+- 任务分类：把一级路由的行改成你自己的真实工作分类，整表保持十行以内。
+- 条目长度上限：默认值（一级约 30-50 字、二级约 80-120 字）只是起点；如果你的客户端截断更激进，就收得更紧。
+- 原生自动 vs 路由优先：决定哪几个能力保留原生自动发现（高频、低风险、描述截断安全），哪些由薄路由优先推荐。只有客户端原生可见性或调用设置真正限制后，能力才算“只走路由”；修改这些设置必须先确认。
+- 总管型策略：对启动型宽触发、SessionStart Hook 注入的能力，自己定 allowlist 门槛。安全默认值是审查前一律仅显式调用，晋升前必须获得人工明确批准。
+- 常驻层预算：定一个复查节奏（比如每月），用干净新会话重测规则文件、active 描述和 Hook 注入的成本。
