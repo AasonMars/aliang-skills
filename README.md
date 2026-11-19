@@ -36,8 +36,8 @@ fi
 先克隆仓库，在仓库根目录执行：
 
 ```bash
-git clone https://github.com/AasonMars/aliang-skills-public.git
-cd aliang-skills-public
+git clone https://github.com/AasonMars/aliang-skills.git
+cd aliang-skills
 ```
 
 ```bash
