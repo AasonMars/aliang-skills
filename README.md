@@ -6,23 +6,25 @@
 
 | Skill | 用途 | 输入与输出 |
 | --- | --- | --- |
-| [Aliang Growth Workbench](skills/aliang-growth-workbench/SKILL.md) | 建立个人成长工作台，整理规则、记忆、知识、能力、待办和项目 | 输入工作台位置及希望整理的资料范围；生成属于使用者的工作台 |
+| [Aliang Growth Memory](skills/aliang-growth-memory/SKILL.md) | 建立阿良成长记忆库，整理规则、记忆、知识、能力、待办和项目 | 输入记忆库位置及希望整理的资料范围；生成属于使用者的记忆库 |
 | [Aliang Research](skills/aliang-research/SKILL.md) | 研究对标作者的近期作品、评论需求和视频脚本 | 输入作者主页或作品链接；输出研究结果，可按需整理为飞书多维表格 |
 
-## 安装个人成长工作台
+## 安装阿良成长记忆库
+
+本技能原名 `aliang-growth-workbench`，现更名为 `aliang-growth-memory`。原有记忆库数据不受影响；已经安装旧版的使用者应先检查旧版及本地改动，避免同时安装两份造成重复触发。旧版目录链接需更新为新路径。
 
 克隆本仓库后，在仓库根目录执行：
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-if [ -e "${CODEX_HOME:-$HOME/.codex}/skills/aliang-growth-workbench" ]; then
-  echo "aliang-growth-workbench 已存在，请先检查已有版本。"
+if [ -e "${CODEX_HOME:-$HOME/.codex}/skills/aliang-growth-memory" ]; then
+  echo "aliang-growth-memory 已存在，请先检查已有版本。"
 else
-  cp -R skills/aliang-growth-workbench "${CODEX_HOME:-$HOME/.codex}/skills/aliang-growth-workbench"
+  cp -R skills/aliang-growth-memory "${CODEX_HOME:-$HOME/.codex}/skills/aliang-growth-memory"
 fi
 ```
 
-重新启动 Codex 或开启新会话，然后说：“使用 aliang-growth-workbench，帮我建立个人成长工作台。”首次建立需要一个新目录或空目录；已有资料时由 AI 先检查并提出整理方案。技能使用本机已有 Python 3，自动生成的路由和分类视图在记录更新后刷新，不会后台持续运行。第三方代码及许可证保留在技能资源中。
+重新启动 Codex 或开启新会话，然后说：“使用 aliang-growth-memory，帮我建立阿良成长记忆库。”首次建立需要一个新目录或空目录；已有资料时由 AI 先检查并提出整理方案。技能使用本机已有 Python 3，自动生成的路由和分类视图在记录更新后刷新，不会后台持续运行。第三方代码及许可证保留在技能资源中。
 
 ## 使用前了解
 
@@ -71,7 +73,7 @@ fi
 
 ```text
 skills/
-  aliang-growth-workbench/
+  aliang-growth-memory/
     SKILL.md
     scripts/
     assets/
